@@ -12,19 +12,20 @@ btn.addEventListener('click',(e)=>{
 	alert(`Logged in as ${username.value}`)
 	// alert('hi')
 	if (checkbox.checked) {
-		let userObj={
-			'username':username.value,
-			'password':password.value
-		}
-        localStorage.setItem('userObj',JSON.stringify(userObj))
+		localStorage.setItem('username', username.value);
+        localStorage.setItem('password', password.value);
+        // localStorage.setItem('userObj',JSON.stringify(userObj))
     } else {
-        localStorage.clear()
+		localStorage.removeItem('username');
+        localStorage.removeItem('password');
+        // localStorage.clear()
     }
 })
 
 window.onload = function() {
-    let credentials = localStorage.getItem("userObj");
-    if (credentials) {
+    // let credentials = localStorage.getItem("userObj");
+	let username = localStorage.getItem("username");
+    if (username) {
         existing.style.display = "block"; // Show the button if credentials exist
     } else {
         existing.style.display = "none"; // Hide the button if no credentials
