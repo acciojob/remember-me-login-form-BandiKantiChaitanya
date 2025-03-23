@@ -5,14 +5,14 @@ let checkbox=document.getElementById("checkbox")
 let btn=document.getElementById("submit")
 let existing=document.getElementById('existing')
 
-let userObj={}
+// let userObj={}
 
 btn.addEventListener('click',(e)=>{
 	e.preventDefault()
 	alert(`Logged in as ${username.value}`)
 	// alert('hi')
 	if (checkbox.checked) {
-		userObj={
+		let userObj={
 			'username':username.value,
 			'password':password.value
 		}
@@ -22,13 +22,11 @@ btn.addEventListener('click',(e)=>{
     }
 })
 
-function onload() {
-	let credentials = localStorage.getItem("userObj"); 
-	if (credentials) {
-            existing.style.display = "block"; // Show the button if credentials exist
-        } else {
-            existing.style.display = "none"; // Keep the button hidden if no credentials
-        }
-}
-
-window.onload=onload;
+window.onload = function() {
+    let credentials = localStorage.getItem("userObj");
+    if (credentials) {
+        existing.style.display = "block"; // Show the button if credentials exist
+    } else {
+        existing.style.display = "none"; // Hide the button if no credentials
+    }
+};
