@@ -15,9 +15,11 @@ btn.addEventListener('click',(e)=>{
 		localStorage.setItem('username', username.value);
         localStorage.setItem('password', password.value);
         // localStorage.setItem('userObj',JSON.stringify(userObj))
+		existing.style.display = "block";
     } else {
 		localStorage.removeItem('username');
         localStorage.removeItem('password');
+		existing.style.display = "none"; 
         // localStorage.clear()
     }
 })
